@@ -4,7 +4,11 @@ Any place where you see {subproject}, replace it with the name of your subprojec
 2. Run `npx create-react-app@latest {name} --template typescript`.
 3. Run `cd ${subproject}`
 4. Install dependencies with
-`npm install axios redux`
+`npm install
+axios
+redux
+react-redux
+@reduxjs-toolkit`
 5. Install the Material UI libraries with
 `npm install
 @emotion/react
