@@ -1,4 +1,4 @@
-import { Language } from '../models';
+import { Language } from '../../models';
 
 export interface Action {
 	type: ActionType;

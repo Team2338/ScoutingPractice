@@ -1,4 +1,4 @@
-import { IAppState, Language } from '../models';
+import { IAppState, Language } from '../../models';
 import { Action, ActionType } from './Actions';
 
 const INITIAL_STATE: IAppState = {
