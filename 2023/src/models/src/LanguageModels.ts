@@ -1,6 +1,8 @@
 export enum Language {
 	ENGLISH = 'english',
-	SPANISH = 'spanish'
+	SPANISH = 'spanish',
+	FRENCH = 'french',
+	TURKISH = 'turkish'
 }
 
 export interface LanguageDescriptor {
@@ -26,5 +28,23 @@ export const LanguageInfo: ILanguageInfo = {
 		code: 'es',
 		localName: 'Español',
 		englishName: 'Spanish'
+	},
+	[Language.FRENCH]: {
+		key: Language.FRENCH,
+		code: 'fr',
+		localName: 'Français',
+		englishName: 'French'
+	},
+	[Language.TURKISH]: {
+		key: Language.TURKISH,
+		code: 'tr',
+		localName: 'Türkçe',
+		englishName: 'Turkish'
+	}
+};
+
+export type ILanguageTranslation = {
+	[language in Language]: {
+		[key: string]: string;
 	}
 };

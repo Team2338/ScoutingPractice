@@ -17,7 +17,7 @@ export const selectLang = (language: Language): Action => ({
 	payload: language
 });
 
-export const loginSuccess = (loginData: ILoginInfo): Action => ({
+export const login = (loginData: ILoginInfo): Action => ({
 	type: ActionType.LOGIN_SUCCESS,
 	payload: loginData
 });

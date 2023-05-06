@@ -1,0 +1,15 @@
+.login-page {
+	align-items: center;
+	justify-content: center;
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		min-width: 20em;
+		padding: 16px;
+
+		#login-page-form-submit {
+			margin-top: 24px;
+		}
+	}
+}
