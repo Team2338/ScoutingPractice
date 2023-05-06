@@ -105,6 +105,9 @@ export default function LoginPage() {
 					{ translate('SIGN_IN') }
 				</Button>
 			</form>
+			<div className="copyright-notice">
+				© { new Date().getFullYear() } Gear it Forward
+			</div>
 		</div>
 	);
 }

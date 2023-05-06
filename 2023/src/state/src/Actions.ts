@@ -12,7 +12,7 @@ export enum ActionType {
 }
 
 
-export const selectLang = (language: Language): Action => ({
+export const selectLanguage = (language: Language): Action => ({
 	type: ActionType.SELECT_LANG,
 	payload: language
 });
