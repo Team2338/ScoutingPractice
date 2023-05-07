@@ -4,3 +4,9 @@ export interface ILoginInfo {
 	eventCode: string;
 	secretCode: string;
 }
+
+export enum AllianceColor {
+	blue = 'BLUE',
+	red = 'RED',
+	unknown = 'UNKNOWN'
+}

@@ -1,5 +1,6 @@
 import { IAppState, Language } from '../../models';
 import { Action, ActionType } from './Actions';
+import { AllianceColor } from '../../models/src/DataModels';
 
 const INITIAL_STATE: IAppState = {
 	language: Language.ENGLISH,
@@ -9,6 +10,11 @@ const INITIAL_STATE: IAppState = {
 		username: null,
 		eventCode: null,
 		secretCode: null
+	},
+	match: {
+		matchNumber: '',
+		robotNumber: '',
+		allianceColor: AllianceColor.unknown
 	}
 };
 
