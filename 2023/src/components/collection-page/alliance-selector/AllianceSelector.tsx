@@ -2,34 +2,47 @@ import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import { AllianceColor } from '../../../models/src/DataModels';
 import { useTranslator } from '../../../services';
+import './AllianceSelector.scss';
+
+const RED: string = '#EE4444';
+const BLUE: string = '#5577FF';
+const GREY: string = '#DBDEDF';
 
 export default function AllianceSelector() {
 
 	const translate = useTranslator();
 	const [selectedColor, setSelectedColor] = useState(AllianceColor.unknown);
 
-	let blueColor = '#01233D';
-	let redColor = '#01233D';
-
-	if (selectedColor === AllianceColor.red) {
-		redColor = '#EE4444';
-	} else if (selectedColor === AllianceColor.blue) {
-		blueColor = '#5577FF';
-	}
+	const isRed: boolean = selectedColor === AllianceColor.red;
+	const isBlue: boolean = selectedColor === AllianceColor.blue;
 
 	return (
-		<div>
+		<div
+			className="alliance-selector"
+			role="radiogroup"
+			aria-label={translate('ALLIANCE_COLOR')}
+		>
 			<Button
-				style={{ backgroundColor: redColor }}
-				variant={ selectedColor === AllianceColor.red ? 'contained' : 'outlined' }
+				style={{
+					backgroundColor: isRed ? RED : GREY,
+					borderColor: isRed ? RED : GREY,
+					color: isRed ? '#FFF' : RED
+				}}
+				variant={ isRed ? 'contained' : 'outlined' }
 				onClick={ () => setSelectedColor(AllianceColor.red) }
+				disableElevation
 			>
 				{ translate('RED_ALLIANCE') }
 			</Button>
 			<Button
-				style={{ backgroundColor: blueColor }}
+				style={{
+					backgroundColor: isBlue ? BLUE : GREY,
+					borderColor: isBlue ? BLUE : GREY,
+					color: isBlue ? '#FFF' : BLUE
+				}}
 				variant={ selectedColor === AllianceColor.blue ? 'contained' : 'outlined' }
 				onClick={ () => setSelectedColor(AllianceColor.blue) }
+				disableElevation
 			>
 				{ translate('BLUE_ALLIANCE') }
 			</Button>
