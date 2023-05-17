@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 
 
 interface IProps {
-	gamemode: Gamemode
+	gamemode: Gamemode;
 }
 
 function getSymbol(index: number) {
@@ -19,6 +19,24 @@ function getSymbol(index: number) {
 	}
 
 	return '▲';
+}
+
+function getTeleopColor(autoScore: number, teleopScore: number) {
+	if (teleopScore === 0) {
+		return 'primary';
+	}
+
+	if (teleopScore === 1 && autoScore === 0) {
+		return 'primary';
+	}
+
+	if (teleopScore === 1 && autoScore === 1) {
+		return 'success';
+	}
+
+	if (teleopScore === 2) {
+		return 'success';
+	}
 }
 
 export default function Grid(props: IProps) {
@@ -34,23 +52,24 @@ export default function Grid(props: IProps) {
 	}
 
 	const elements = combinedGrid.map((numPieces: number, index: number) => {
-		let color: 'primary' | 'secondary' | 'success';
 		let variant: 'outlined' | 'contained';
+		let color: 'primary' | 'secondary' | 'success';
 
 		if (props.gamemode === Gamemode.auto) {
-			color = (autoGrid[index] === 0) ? 'primary' : 'secondary';
+			variant = (autoGrid[index] === 0) ? 'outlined' : 'contained';
+			color = 'primary';
+
 		} else {
-			if (combinedGrid[index] === 0) {
-				color = 'primary';
-			} else if (combinedGrid[index] === 1)
+			variant = (teleopGrid[index] === 0) ? 'outlined' : 'contained';
+			color = getTeleopColor(autoGrid[index], teleopGrid[index]);
 		}
 
 		return (
 			<Button
-				key={index}
-				color={color}
-				variant={variant}
-				onClick={() => handleClick(index)}
+				key={ index }
+				color={ color }
+				variant={ variant }
+				onClick={ () => handleClick(index) }
 			>
 				{ getSymbol(index) }
 			</Button>
