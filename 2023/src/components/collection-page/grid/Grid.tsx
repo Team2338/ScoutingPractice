@@ -2,7 +2,9 @@ import React from 'react';
 import './Grid.scss';
 import { activateNode, useAppDispatch, useAppSelector } from '../../../state';
 import { Gamemode } from '../../../models';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import { useTranslator } from '../../../services';
+import HelpButton from '../help-button/HelpButton';
 
 
 interface IProps {
@@ -41,6 +43,7 @@ function getTeleopColor(autoScore: number, teleopScore: number) {
 
 export default function Grid(props: IProps) {
 
+	const translate = useTranslator();
 	const dispatch = useAppDispatch();
 	const handleClick = (index: number) => dispatch(activateNode(props.gamemode, index));
 	const autoGrid = useAppSelector(state => state.match[Gamemode.auto].grid);
@@ -78,7 +81,20 @@ export default function Grid(props: IProps) {
 
 	return (
 		<div className="grid-wrapper">
-			{ elements }
+			<div id="grid-label" className="label">
+				<Typography
+					variant="h3"
+					width="fit-content"
+				>
+					{ translate('GRID') }
+				</Typography>
+				<HelpButton name="grid-instructions">
+					{ translate('GRID_HELPER_TEXT') }
+				</HelpButton>
+			</div>
+			<div className="grid-buttons" aria-labelledby="grid-label">
+				{ elements }
+			</div>
 		</div>
 	);
 }
