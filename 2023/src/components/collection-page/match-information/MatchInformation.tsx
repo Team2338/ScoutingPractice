@@ -31,7 +31,7 @@ export default function MatchInformation() {
 			/>
 			<TextField
 				id="robot-number-input"
-				label={ translate('YOUR_TEAM_NUMBER') }
+				label={ translate('TEAM_NUMBER') }
 				name="robotNumber"
 				type="number"
 				margin="normal"

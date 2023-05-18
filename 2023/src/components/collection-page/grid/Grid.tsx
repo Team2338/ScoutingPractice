@@ -86,7 +86,7 @@ export default function Grid(props: IProps) {
 					variant="h3"
 					width="fit-content"
 				>
-					{ translate('GRID') }
+					{ translate('GRID_2023') }
 				</Typography>
 				<HelpButton name="grid-instructions">
 					{ translate('GRID_HELPER_TEXT') }
